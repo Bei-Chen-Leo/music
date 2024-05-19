@@ -10,6 +10,10 @@
             margin: 0;
             padding: 0;
             background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
         h1, h2, h3, p{
@@ -38,10 +42,59 @@
             margin-top: 20px;
             color: gray;
         }
+
+        .card {
+            width: 280px;
+            height: 150px;
+            background: linear-gradient(to right, rgb(20, 30, 48), rgb(36, 59, 85));
+            border-radius: 15px;
+            box-shadow: rgb(0, 0, 0, 0.7) 5px 10px 50px, rgb(0, 0, 0, 0.7) -5px 0px 250px;
+            display: flex;
+            color: white;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            box-shadow: rgb(0, 0, 0) 5px 10px 50px, rgb(0, 0, 0) -5px 0px 250px;
+        }
+
+        .time-text {
+            font-size: 50px;
+            margin-top: 0px;
+            margin-left: 15px;
+            font-weight: 600;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .time-sub-text {
+            font-size: 15px;
+            margin-left: 5px;
+        }
+
+        .day-text {
+            font-size: 18px;
+            margin-top: 0px;
+            margin-left: 15px;
+            font-weight: 500;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .time-text, .day-text {
+    color: white;
+}
     </style>
 </head>
 <body>
     <header>
+        <div class="card">
+            <p id="time" class="time-text"></p>
+            <p id="date" class="day-text"></p>
+        </div>
         <h1>北尘的简易音乐播放器</h1>
         <h2>Beichen's Simple Music Player</h2>
         <h3>歌曲列表</h3>
@@ -70,5 +123,34 @@
         <p>&copy; 2024 Beichen's Simple Music Player</p>
         <p><a href="https://www.beichen.icu">回到主页</a></p>
     </footer>
+    <script>
+        // Function to update the time and date every second
+        function updateTime() {
+            var now = new Date();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12; // Handle midnight
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            var timeString = hours + ':' + minutes + ' ' + ampm;
+            document.getElementById('time').textContent = timeString;
+
+            var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            var dayOfWeek = days[now.getDay()];
+            var month = months[now.getMonth()];
+            var date = now.getDate();
+            var year = now.getFullYear();
+            var dateString = dayOfWeek + ', ' + month + ' ' + date + ', ' + year;
+            document.getElementById('date').textContent = dateString;
+        }
+
+        // Call updateTime initially to set the time and date immediately
+        updateTime();
+
+        // Call updateTime every second to keep the time and date updated
+        setInterval(updateTime, 1000);
+    </script>
 </body>
 </html>
