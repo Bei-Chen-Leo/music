@@ -10,13 +10,49 @@
             margin: 0;
             padding: 0;
             background-color: #f2f2f2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
         }
 
-        h1, h2, h3, p{
+        header {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .card {
+            width: 280px;
+            height: 150px;
+            background: linear-gradient(to right, rgb(20, 30, 48), rgb(36, 59, 85));
+            border-radius: 15px;
+            box-shadow: 5px 10px 50px rgba(0, 0, 0, 0.7), -5px 0px 250px rgba(0, 0, 0, 0.7);
+            display: flex;
+            color: white;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            overflow: hidden;
+            margin: 0 auto 20px; /* Added margin for spacing */
+        }
+
+        .card:hover {
+            box-shadow: 5px 10px 50px rgba(0, 0, 0, 0.7), -5px 0px 250px rgba(0, 0, 0, 0.7);
+        }
+
+        .time-text {
+            font-size: 30px;
+            margin: 0;
+            font-weight: 600;
+            color: white; /* Changed text color to white */
+        }
+
+        .day-text {
+            font-size: 16px;
+            margin: 0;
+            font-weight: 500;
+            color: white; /* Changed text color to white */
+        }
+
+        h1, h2, h3, p {
             text-align: center;
             color: #333;
         }
@@ -25,7 +61,7 @@
             list-style-type: none;
             padding: 0;
             margin: 20px auto;
-            width: 80%;
+            width: 90%; /* Increased width for better readability */
         }
 
         li {
@@ -43,50 +79,12 @@
             color: gray;
         }
 
-        .card {
-            width: 280px;
-            height: 150px;
-            background: linear-gradient(to right, rgb(20, 30, 48), rgb(36, 59, 85));
-            border-radius: 15px;
-            box-shadow: rgb(0, 0, 0, 0.7) 5px 10px 50px, rgb(0, 0, 0, 0.7) -5px 0px 250px;
-            display: flex;
-            color: white;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            cursor: pointer;
-            transition: all 0.3s ease-in-out;
-            overflow: hidden;
+        @media screen and (min-width: 768px) {
+            /* Adjustments for larger screens */
+            .card {
+                width: 400px;
+            }
         }
-
-        .card:hover {
-            box-shadow: rgb(0, 0, 0) 5px 10px 50px, rgb(0, 0, 0) -5px 0px 250px;
-        }
-
-        .time-text {
-            font-size: 50px;
-            margin-top: 0px;
-            margin-left: 15px;
-            font-weight: 600;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        }
-
-        .time-sub-text {
-            font-size: 15px;
-            margin-left: 5px;
-        }
-
-        .day-text {
-            font-size: 18px;
-            margin-top: 0px;
-            margin-left: 15px;
-            font-weight: 500;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        }
-
-        .time-text, .day-text {
-    color: white;
-}
     </style>
 </head>
 <body>
@@ -95,29 +93,26 @@
             <p id="time" class="time-text"></p>
             <p id="date" class="day-text"></p>
         </div>
-        <h1>北尘的简易音乐播放器</h1>
-        <h2>Beichen's Simple Music Player</h2>
+        <h1>Beichen's Simple Music Player</h1>
+        <h2>北尘的简易音乐播放器</h2>
         <h3>歌曲列表</h3>
     </header>
 
-    <!-- 嵌入音频文件 -->
-    <p>KASTRA - Fool For You.mp3</p>
-    <audio controls>
-        <source src="KASTRA - Fool For You.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-
-    <p>NUEKI TOLCHONOV Glichery - TIRED OF PROBLEMS.mp3</p>
-    <audio controls>
-        <source src="NUEKI TOLCHONOV Glichery - TIRED OF PROBLEMS.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-
-    <p>王贰浪 - 谁.mp3</p>
-    <audio controls>
-        <source src="王贰浪 - 谁.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
+    <!-- Embedded audio files -->
+    <ul>
+        <li><audio controls>
+            <source src="KASTRA - Fool For You.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio></li>
+        <li><audio controls>
+            <source src="NUEKI TOLCHONOV Glichery - TIRED OF PROBLEMS.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio></li>
+        <li><audio controls>
+            <source src="王贰浪 - 谁.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio></li>
+    </ul>
 
     <footer>
         <p>&copy; 2024 Beichen's Simple Music Player</p>
