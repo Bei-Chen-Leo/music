@@ -162,14 +162,15 @@
         setInterval(updateTime, 1000);
 
         // Prevent multiple audio elements from playing simultaneously
+        var currentlyPlaying = null;
+        
         document.addEventListener('play', function(event) {
-            var audios = document.getElementsByTagName('audio');
-            for (var i = 0; i < audios.length; i++) {
-                if (audios[i] !== event.target) {
-                    audios[i].pause();
-                }
+            if (currentlyPlaying && currentlyPlaying !== event.target) {
+                currentlyPlaying.pause();
+                currentlyPlaying.currentTime = 0;
+                alert('喂喂，你在干什么傻事！');
             }
-            alert('喂喂，你在干什么傻事！');
+            currentlyPlaying = event.target;
         }, true);
     </script>
 </body>
