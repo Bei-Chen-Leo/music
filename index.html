@@ -6,66 +6,62 @@
     <title>Beichen's Simple Music Player</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f2f2f2;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
         }
 
         header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
             text-align: center;
-            margin-top: 20px;
         }
 
-        .card {
-            width: 280px;
-            height: 150px;
-            background: linear-gradient(to right, rgb(20, 30, 48), rgb(36, 59, 85));
-            border-radius: 15px;
-            box-shadow: 5px 10px 50px rgba(0, 0, 0, 0.7), -5px 0px 250px rgba(0, 0, 0, 0.7);
+        .time-date {
             display: flex;
-            color: white;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            cursor: pointer;
-            transition: all 0.3s ease-in-out;
-            overflow: hidden;
-            margin: 0 auto 20px;
+            justify-content: space-between;
+            margin-bottom: 20px;
         }
 
-        .card:hover {
-            box-shadow: 5px 10px 50px rgba(0, 0, 0, 0.7), -5px 0px 250px rgba(0, 0, 0, 0.7);
-        }
-
-        .time-text {
-            font-size: 30px;
+        .time-date p {
             margin: 0;
-            font-weight: 600;
-            color: white;
+            font-size: 1rem;
         }
 
-        .day-text {
-            font-size: 16px;
+        .music-container {
+            flex: 1;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+        }
+
+        h1, h2 {
             margin: 0;
-            font-weight: 500;
-            color: white;
-        }
-
-        h1, h2, h3, p {
-            text-align: center;
-            color: #333;
+            padding-bottom: 10px;
         }
 
         ul {
             list-style-type: none;
             padding: 0;
-            margin: 20px auto;
-            width: 90%;
         }
 
         li {
-            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #f4f4f4;
+        }
+
+        li:last-child {
+            border-bottom: none;
         }
 
         audio {
@@ -74,66 +70,73 @@
         }
 
         footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
             text-align: center;
-            margin-top: 20px;
-            color: gray;
+            margin-top: auto;
         }
 
         @media screen and (min-width: 768px) {
-            .card {
-                width: 400px;
+            .music-container {
+                margin: 40px;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="card">
-            <p id="time" class="time-text"></p>
-            <p id="date" class="day-text"></p>
+        <div class="time-date">
+            <p id="time">Time</p>
+            <p id="date">Date</p>
         </div>
         <h1>Beichen's Simple Music Player</h1>
         <h2>北尘的简易音乐播放器</h2>
-        <h3>歌曲列表</h3>
     </header>
 
-    <ul>
-        <li>
-            <p>KASTRA - Fool For You.mp3</p>
-            <audio controls>
-                <source src="KASTRA - Fool For You.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-        </li>
-        <li>
-            <p>NUEKI TOLCHONOV Glichery - TIRED OF PROBLEMS.mp3</p>
-            <audio controls>
-                <source src="NUEKI TOLCHONOV Glichery - TIRED OF PROBLEMS.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-        </li>
-        <li>
-            <p>王贰浪 - 谁.mp3</p>
-            <audio controls>
-                <source src="王贰浪 - 谁.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-        </li>
-        <li>
-            <p>周杰伦-烟花易冷.mp3</p>
-            <audio controls>
-                <source src="烟花易冷-周杰伦.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-        </li>
-    </ul>
+    <div class="music-container">
+        <h3>歌曲列表</h3>
+        <ul>
+            <li>
+                <p>KASTRA - Fool For You.mp3</p>
+                <audio controls>
+                    <source src="KASTRA - Fool For You.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </li>
+            <li>
+                <p>NUEKI TOLCHONOV Glichery - TIRED OF PROBLEMS.mp3</p>
+                <audio controls>
+                    <source src="NUEKI TOLCHONOV Glichery - TIRED OF PROBLEMS.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </li>
+            <li>
+                <p>王贰浪 - 谁.mp3</p>
+                <audio controls>
+                    <source src="王贰浪 - 谁.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </li>
+            <li>
+                <p>周杰伦-烟花易冷.mp3</p>
+                <audio controls>
+                    <source src="烟花易冷-周杰伦.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </li>
+        </ul>
+    </div>
 
     <footer>
         <p>&copy; 2024 Beichen's Simple Music Player</p>
         <p><a href="https://www.beichen.icu">回到主页</a></p>
     </footer>
+
     <script>
-        // Function to update the time and date every second
+        // JavaScript code to update time and date
+        // ... (existing JavaScript code)
+                // Function to update the time and date every second
         function updateTime() {
             var now = new Date();
             var hours = now.getHours();
@@ -160,7 +163,6 @@
 
         // Call updateTime every second to keep the time and date updated
         setInterval(updateTime, 1000);
-
     </script>
 </body>
 </html>
