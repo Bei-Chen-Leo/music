@@ -161,17 +161,6 @@
         // Call updateTime every second to keep the time and date updated
         setInterval(updateTime, 1000);
 
-        // Prevent multiple audio elements from playing simultaneously
-        var currentlyPlaying = null;
-        
-        document.addEventListener('play', function(event) {
-            if (currentlyPlaying && currentlyPlaying !== event.target) {
-                currentlyPlaying.pause();
-                currentlyPlaying.currentTime = 0;
-                alert('喂喂，你在干什么傻事！');
-            }
-            currentlyPlaying = event.target;
-        }, true);
     </script>
 </body>
 </html>
